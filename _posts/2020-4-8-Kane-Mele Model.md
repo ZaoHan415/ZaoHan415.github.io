@@ -114,7 +114,7 @@ plt.show()
 
 and the output
 
-![spectrum](https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/KaneMeleSpectrum1.svg)
+![spectrum](https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/KaneMeleSpectrum1.png)
 
 ## Discussions
 
