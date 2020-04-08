@@ -33,7 +33,9 @@ Label the cells in $x$ direction by index $n$, and atoms in a unit cell by index
 Translation symmetry along $x$ allows us to introduce $k$, such that
 
 $$ c_{nj\alpha} = \sum_k c_{kj\alpha} e^{-ikn}$$
+
 and
+
 $$ c^\dagger_{nj\alpha} = \sum_k c^\dagger_{kj\alpha} e^{ikn}$$
 
 first consider the nearest hopping term, by some routine calculation
