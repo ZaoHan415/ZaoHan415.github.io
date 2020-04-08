@@ -1,6 +1,6 @@
 ---
 title: 李代数逻辑链整理
-tags: Note
+tags: Note\笔记
 key: LieAlgebraLearningAndForgetting
 mathjax: true
 articles:
