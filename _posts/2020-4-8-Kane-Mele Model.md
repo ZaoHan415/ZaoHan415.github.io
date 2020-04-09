@@ -1,6 +1,6 @@
 ---
 title: Numerical Calculation of Kane-Mele model
-tags: Note\笔记, Tech\技术
+tags: Note\笔记 Tech\技术
 key: TightBindingModelKaneMele
 mathjax: true
 articles:
