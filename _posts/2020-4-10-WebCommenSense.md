@@ -8,11 +8,12 @@ articles:
   show_excerpt: true
   show_readmore: true
   show_info: true
+  data_source: zaohan415.github.io
 ---
 $$\newcommand{\ad}{\text{ad}}$$
 $$\newcommand{\End}{\text{End}}$$
 
-这篇短文共x个字，预计阅读时间10分钟。这篇短文将会把读者当作什么都不懂只会玩手机的小白，讨论以下几个问题：
+这篇短文共x个字，预计阅读时间10分钟。这篇短文将会把读者当作什么都不懂的小白，讨论以下几个问题：
 
 - 什么是互联网
 - 互联网是怎么工作的
