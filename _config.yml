@@ -227,3 +227,7 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jemoji
+
+collections:
+  deprecated_posts:
+    output: true

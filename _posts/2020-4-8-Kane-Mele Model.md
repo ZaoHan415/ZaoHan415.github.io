@@ -3,12 +3,6 @@ title: Numerical Calculation of Kane-Mele model
 tags: Note\笔记 Tech\技术
 key: TightBindingModelKaneMele
 mathjax: true
-articles:
-  data_source: zaohan415.github.io
-  show_cover: false
-  show_excerpt: true
-  show_readmore: true
-  show_info: true
 ---
 $$\newcommand{\ad}{\text{ad}}$$
 $$\newcommand{\End}{\text{End}}$$

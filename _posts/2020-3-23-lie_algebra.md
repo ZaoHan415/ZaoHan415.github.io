@@ -3,12 +3,6 @@ title: 李代数逻辑链整理
 tags: Note\笔记
 key: LieAlgebraLearningAndForgetting
 mathjax: true
-articles:
-  data_source: zaohan415.github.io
-  show_cover: false
-  show_excerpt: true
-  show_readmore: true
-  show_info: true
 ---
 $$\newcommand{\ad}{\text{ad}}$$
 $$\newcommand{\End}{\text{End}}$$

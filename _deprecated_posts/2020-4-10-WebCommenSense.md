@@ -2,13 +2,8 @@
 title: 网络常识小科普
 tags: Tech\技术
 key: GFWWoLaiLa
-mathjax: true
-articles:
-  show_cover: false
-  show_excerpt: true
-  show_readmore: true
-  show_info: true
-  data_source: zaohan415.github.io
+layout: article
+# mathjax: true
 ---
 $$\newcommand{\ad}{\text{ad}}$$
 $$\newcommand{\End}{\text{End}}$$
