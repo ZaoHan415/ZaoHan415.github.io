@@ -3,6 +3,11 @@ title: 网络常识小科普
 tags: Tech\技术
 key: GFWWoLaiLa
 layout: article
+license: true
+toc: true
+pageview: true
+aside:
+    toc: true
 # mathjax: true
 ---
 $$\newcommand{\ad}{\text{ad}}$$
@@ -40,7 +45,7 @@ QQ的工作机理比较复杂，假设你对象是度娘，就比较好说清。
 
 ![DNS_error](https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/dns-server-cannot-be-reached.png)
 
-## 网站是如何被:no_entry:的
+## 网站是如何被ban的
 
 中国电信、中国移动，顾名思义是两个:baby:，要听家里大人的话。有国内的网站不听话，咱:older_man:可以让电信移动把这网站端了。但是，如果别人家的:baby:不听咱:older_man:的话，咱:older_man:还想管教人家，咋办呢？咱:older_man:于是搞了一个叫GFW的东西。这个名字不是我瞎编的，是咱:older_man:自己起的名字，不信可以看百度百科：
 
@@ -58,6 +63,6 @@ GFW办事儿还有很多法子，不再赘述。
 
 客观地说，**GFW的确为咱们国家的经济发展社会民生、咱们孩子的健康成长做出了很大的贡献，但我个人是觉得现在他有点儿管得太多了，也给同学们的生活造成了诸多不便**。如果你也不乐意自己送给外国友人的信被人拿去研究（虽然信内容一般是加密的，也研究不出个啥），请管住身边的程序员、工程师朋友，让他们将来莫去给GFW添砖加瓦。
 
-## 怎么不被:no_entry:
+## 怎么不被ban
 
 【未完待续~】
