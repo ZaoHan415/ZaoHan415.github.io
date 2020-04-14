@@ -10,8 +10,10 @@ aside:
     toc: true
 # mathjax: true
 ---
-$$\newcommand{\ad}{\text{ad}}$$
-$$\newcommand{\End}{\text{End}}$$
+
+<meta itemprop="name" content="网络常识小科普">
+<meta itemprop="description" content="以上，便是小编为大家整理的关于如何上不存在网站的方法。大家可能会很惊讶不存在的网站怎么会这么上呢？但事实就是这样，小编也感到非常惊讶。">
+<meta itemprop="image" content="https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/BeHit.jpg">
 
 共3185字，预计阅读时间6分钟。
 {:.info}
@@ -109,7 +111,7 @@ GFW并不是我国特色，很多国家都有类似的设施，譬如<span class
 4. 嘲讽TA。例句：“你连翻:no_entry:都不会，自称程序猿/媛真的大丈夫:horse:”。如果嘲讽成功，TA学会了，则前往第3条；如果他还是不会，你可以去找祖安人学习对线技术，重新开始本条……或是前往第1条，从头再来。
 5. 如果以上4条陷入死循环，还请您自行钻研，只要愿意学，百度上的信息便足够翻:no_entry:了。
 
-以上，便是小编为大家整理的关于“如何搞到翻:no_entry:服务器”的方法。大家可能会很惊讶歪果服务器怎么会这么搞呢？但事实就是这样，小编也感到非常惊讶。
+以上，便是小编为大家整理的关于如何上不存在网站的方法。大家可能会很惊讶不存在的网站怎么会这么上呢？但事实就是这样，小编也感到非常惊讶。
 
 <img class="image image--md" src="https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/BeHit.jpg"/>
 
