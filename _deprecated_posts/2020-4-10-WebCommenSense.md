@@ -10,6 +10,8 @@ aside:
     toc: true
 # mathjax: true
 ---
+
+<!--
 <script src="//open.mobile.qq.com/sdk/qqapi.js"></script>
 
 <script>
@@ -22,11 +24,15 @@ const share = {
 mqq.data.setShareInfo(share, callback);
 </script>
 
-<meta itemprop="name" content="网络常识小科普">
+
 <meta name="keywords" content="网络常识小科普">
-<meta name="description" content="以上，便是小编为大家整理的关于如何上不存在网站的方法。大家可能会很惊讶不存在的网站怎么会这么上呢？但事实就是这样，小编也感到非常惊讶。">
-<meta itemprop="description" content="以上，便是小编为大家整理的关于如何上不存在网站的方法。大家可能会很惊讶不存在的网站怎么会这么上呢？但事实就是这样，小编也感到非常惊讶。">
-<meta itemprop="image" content="https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/BeHit.jpg">
+<meta name="description" content="以上，便是小编为大家整理的关于如何上不存在网站的方法……">
+-->
+
+
+<meta itemprop="name" property="og:title" content="网络常识小科普">
+<meta name="description" itemprop="description" property="og:description" content="以上，便是小编为大家整理的关于如何上不存在网站的方法。大家可能会很惊讶不存在的网站怎么会这么上呢？但事实就是这样，小编也感到非常惊讶。">
+<meta itemprop="image" property="og:image" content="https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/BeHit.jpg">
 
 共3185字，预计阅读时间6分钟。
 {:.info}
