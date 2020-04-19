@@ -7,9 +7,20 @@ mathjax: true
 $$\newcommand{\ad}{\text{ad}}$$
 $$\newcommand{\End}{\text{End}}$$
 
-The post below is about band structure calculation of a tight binding model on 2-dimensional honeycomb lattice. The model was first proposed by C.L. Kane and E.J. Mele in 2005. I **reproduce Fig. 1 in their paper via Python**, it's a good exercise and indeed strengthen my understanding of translation symmetry and energy bands.
+The post below is about band structure calculation of a tight binding model on 2-dimensional honeycomb lattice. The model was first proposed by C.L. Kane and E.J. Mele in 2005. 
+
+I reproduce Fig. 1 in their paper via Python, it's a good exercise and indeed strengthen my understanding of translation symmetry and energy bands.
 
 <!--more-->
+
+Relevant papers:
+
+[$Z^2$ Topological Order and the Quantum Spin Hall Effect](https://link.aps.org/doi/10.1103/PhysRevLett.95.146802)
+Phys. Rev. Lett. 95, 146802 (2005).
+
+[Quantum Spin Hall Effect in Graphene](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.95.226801)
+Phys. Rev. Lett. 95, 226801 (2005).
+
 ## Introduction
 
 For detail description of this model, see the paper. Basically, we have a tight-binding hamiltonian of this one electron system given in second quantization form
@@ -111,6 +122,30 @@ plt.show()
 and the output
 
 ![spectrum](https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/KaneMeleSpectrum1.png)
+
+Rashba term and sublattice potential can be added by rewriting the first function:
+
+```python
+def addHopping1(mat, Nj, t1, tr, tv, kx):
+    for j in range(Nj):
+        if j % 2 == 0:
+            mat[(2*j, 2*j)] += tv
+            mat[(2*j + 1, 2*j + 1)] += tv
+            hoppingTo = {(0, 1): (-0.5, np.sqrt(3)/6), (0, -1): (0, -np.sqrt(3)/3), (1, 1): (0.5, np.sqrt(3)/6)}
+        else:
+            mat[(2*j, 2*j)] += -tv
+            mat[(2*j + 1, 2*j + 1)] += -tv
+            hoppingTo = {(0, 1): (0, np.sqrt(3)/3), (0, -1): (0.5, -np.sqrt(3)/6), (-1, -1): (-0.5, -np.sqrt(3)/6)}
+        for delta in hoppingTo:
+            dx, dy = hoppingTo[delta]
+            jDes = delta[1] + j
+            if jDes >= 0 and jDes < Nj:
+                elem = np.exp(1j * delta[0] * kx)
+                mat[(2*j, 2*jDes)] += t1 * elem
+                mat[(2*j + 1, 2*jDes + 1)] += t1 * elem
+                mat[(2*j+1, 2*jDes)] += 1j * tr * (dy + 1j * dx) * elem
+                mat[(2*j, 2*jDes+1)] += 1j * tr * (dy - 1j * dx) * elem
+```
 
 ## Discussions
 
