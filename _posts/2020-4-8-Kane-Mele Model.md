@@ -4,10 +4,11 @@ tags: Note\笔记 Tech\技术
 key: TightBindingModelKaneMele
 mathjax: true
 ---
+
 $$\newcommand{\ad}{\text{ad}}$$
 $$\newcommand{\End}{\text{End}}$$
 
-The post below is about band structure calculation of a tight binding model on 2-dimensional honeycomb lattice. The model was first proposed by C.L. Kane and E.J. Mele in 2005. 
+The post below is about band structure calculation of a tight binding model on 2-dimensional honeycomb lattice. The model was first proposed by C.L. Kane and E.J. Mele in 2005.
 
 I reproduce Fig. 1 in their paper via Python, it's a good exercise and indeed strengthen my understanding of translation symmetry and energy bands.
 
@@ -25,7 +26,7 @@ Phys. Rev. Lett. 95, 226801 (2005).
 
 For detail description of this model, see the paper. Basically, we have a tight-binding hamiltonian of this one electron system given in second quantization form
 
-$$ H = H_1 + H_2 = \sum_{<ij> \alpha} t_1 c_{i \alpha}^\dagger c_{j \alpha} + \sum_{<<ij>>\alpha\beta} it_2 \nu_{ij} s^z_{\alpha\beta} c_{i\alpha}^\dagger c_{j\beta} $$
+$$ H = H_1 + H_2 = \sum_{\braket{ij}\alpha} t_1 c_{i \alpha}^\dagger c_{j \alpha} + \sum_{\braket{\braket{ij}}\alpha\beta} it_2 \nu_{ij} s^z_{\alpha\beta} c_{i\alpha}^\dagger c_{j\beta}$$
 
 in which first and second nearest neighbor hopping term is included.
 
@@ -150,13 +151,3 @@ def addHopping1(mat, Nj, t1, tr, tv, kx):
 ## Discussions
 
 to be continued ...
-
-<!--
-{% if site.liker_id %}
-<iframe
-  frameborder="no"  
-  style="width: 100%; max-width: 360px; height: 180px; margin: auto; overflow: hidden; display: block;"
-  src="https://button.like.co/in/embed/{{site.liker_id}}/button?referrer={{ page.url | absolute_url | cgi_escape }}">
-</iframe>
-{% endif %}
--->

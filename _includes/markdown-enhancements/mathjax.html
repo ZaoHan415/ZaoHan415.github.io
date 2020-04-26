@@ -5,6 +5,7 @@
   source0=site.mathjax_autoNumber source1=page.mathjax_autoNumber -%}
 {%- assign _mathjax_autoNumber = __return -%}
 
+<!--
 <script type="text/x-mathjax-config">
 	var _config = { tex2jax: {
 		inlineMath: [['$','$'], ['\\(','\\)']]
@@ -14,4 +15,27 @@
 	{%- endif -%}
 	MathJax.Hub.Config(_config);
 </script>
-<script type="text/javascript" src="{{ _sources.mathjax }}" async></script>
+-->
+<script>
+	MathJax = {
+		tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]},
+		options: {
+			renderActions: {
+				/* add a new named action not to override the original 'find' action */
+				find_script_mathtex: [10, function (doc) {
+					for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+					const display = !!node.type.match(/; *mode=display/);
+					const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+					const text = document.createTextNode('');
+					node.parentNode.replaceChild(text, node);
+					math.start = {node: text, delim: '', n: 0};
+					math.end = {node: text, delim: '', n: 0};
+					doc.math.push(math);
+					}
+				}, '']
+			}
+  		}
+	};
+</script>
+
+<script id="MathJax-script" async src="{{ _sources.mathjax }}"></script>
