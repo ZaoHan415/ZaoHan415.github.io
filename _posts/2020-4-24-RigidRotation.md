@@ -1,5 +1,5 @@
 ---
-title: 震惊！竟然有人在床上做居家实验！
+title: 震惊！隔离数十天，他竟然在床上干这个！
 tags: Things\杂项
 key: DomiciliaryExpr
 mathjax: true
@@ -19,11 +19,12 @@ mathjax: true
 
 如图，以符合安卓系统习惯的方式在手机上建立参考系：
 
-![PhoneAxis](https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/PhoneDemo.png)
+![手机本体坐标轴示意](https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/PhoneDemo.png)
 
 由于手机自身的对称性，我们不妨假设手机的三个惯量主轴恰好沿$x, y, z$方向，相应主轴转动惯量分别为$I_1, I_2, I_3$，目测发现$I_3 > I_1 > I_2$。
 
 手机抛出后有喜闻乐见的欧拉方程：
+
 $$
 \begin{aligned}
     I_{1}{\dot  {\omega }}_{{1}}+(I_{3}-I_{2})\omega _{2}\omega _{3}&=0\\
@@ -62,11 +63,13 @@ $$
 
 ## 结论
 
-![result1](https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/Phone_result1.jpg)
-如图，全局来看，$\eta$数值并不一直保持常数，而是会出现几个短暂的奇异点，这个也很好理解，因为$\eta$的定义中使用了除法，如果$\omega_x$降到0，$\eta_y$与$\eta_z$的图线均会出现“尖峰”。值得庆幸的是，在两个相邻尖峰之间，我们的$\eta$基本是个常数。
+![角速度与\eta计算值](/assets/images/Phone_result1.jpg)
 
-![result2](https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/PhoneEtasMin.png)
-选$\eta$近似为常数的区间，取平均，计算出$\eta_i$测量值，再多次实验分析下误差，得到：
+如上图，全局来看，$\eta$数值并不一直保持常数，而是会出现几个短暂的奇异点，这个也很好理解，因为$\eta$的定义中使用了除法，如果$\omega_x$降到0，$\eta_y$与$\eta_z$的相对误差都会突破天际，图线上表示为“尖峰”（见图中红色箭头）。值得庆幸的是，在两个相邻尖峰之间，我们的$\eta$基本是个常数。
+
+![\eta平稳值区间放大](/assets/images/PhoneEtasMin.png)
+
+选像上图这样$\eta$近似为常数的区间，取平均，得到$\eta_i$测量值，再多次实验分析下误差，得到：
 
 $$\eta_1 = -0.98 \pm 0.03,\quad \eta_2 = 0.92 \pm 0.01,\quad \eta_3 = 0.632 \pm 0.005$$
 
@@ -78,7 +81,7 @@ $$\alpha = \frac{1- \eta_3}{1+\eta_2 \eta_3}, \quad \beta = \frac{1 + \eta_2}{1 
 
 $$\alpha =  0.233 \pm 0.003, \quad \beta =  1.21 \pm 0.01$$
 
-经过简单验算，在误差范围内确实是自冾的。于是，三个主轴转动惯量（的相对值）就算出来啦！和密度均匀时的估计结果比较一下，发现还不错。{--没有什么卵用但是很成功的实验又增加了！--}
+经过简单验算，在误差范围内确实是自冾的。于是，三个主轴转动惯量（的相对值）就算出来啦，和密度均匀时的估计结果比较一下，发现效果真的不错，相对误差竟然跌破1%！<span class="heimu" title="肥宅大哭.jpg">没有什么卵用但是很成功的实验又增加了！</span>
 
 ## 附录
 
@@ -87,4 +90,4 @@ $$\alpha =  0.233 \pm 0.003, \quad \beta =  1.21 \pm 0.01$$
 
 如果老哥老姐们有更好的办法，别忘了在评论区提醒小编喔(ﾉ*･ω･)ﾉ
 
-![再见](https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/goodbye.jpg)
+![再见](/assets/images/goodbye.jpg)
