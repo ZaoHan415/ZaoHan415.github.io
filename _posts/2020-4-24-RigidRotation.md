@@ -19,7 +19,7 @@ mathjax: true
 
 如图，以符合安卓系统习惯的方式在手机上建立参考系：
 
-![手机本体坐标轴示意](https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/PhoneDemo.png)
+![手机本体坐标轴示意](/assets/images/PhoneDemo.png)
 
 由于手机自身的对称性，我们不妨假设手机的三个惯量主轴恰好沿$x, y, z$方向，相应主轴转动惯量分别为$I_1, I_2, I_3$，目测发现$I_3 > I_1 > I_2$。
 
