@@ -2,6 +2,13 @@
 title: Numerical Calculation of Kane-Mele model
 tags: Note\笔记 Tech\技术
 key: TightBindingModelKaneMele
+layout: article
+license: true
+toc: true
+pageview: true
+aside:
+    toc: true
+sitemap: true
 mathjax: true
 ---
 
@@ -122,7 +129,7 @@ plt.show()
 
 and the output
 
-![spectrum](https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/KaneMeleSpectrum1.png)
+![spectrum](/assets/images/KaneMeleSpectrum1.png)
 
 Rashba term and sublattice potential can be added by rewriting the first function:
 

@@ -2,6 +2,13 @@
 title: 线性响应理论
 tags: Note\笔记 QM\量子
 key: LinearResponseTheory
+layout: article
+license: true
+toc: true
+pageview: true
+aside:
+    toc: true
+sitemap: true
 mathjax: true
 ---
 

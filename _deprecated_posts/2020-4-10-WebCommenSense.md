@@ -8,7 +8,7 @@ toc: true
 pageview: true
 aside:
     toc: true
-sitemap: false
+sitemap: true
 # mathjax: true
 ---
 
@@ -48,19 +48,19 @@ QQ的工作机理比较复杂，假设你对象是度娘，就比较好说清。
 
 当你要问度娘一个问题，就好比给度娘写了封信；现在有了信，有了门牌号，谁来送信呢？那在咱们国家就是中国电信、中国移动，在外国就是别的公司。你给电信交了网费，他们就从自己的**路由服务器**上引根电线出来给你。顾名思义，路由服务器也是个大电脑，但是这个电脑他不养度娘，他“路由”，也就是找路+送信。
 
-![IP_router](https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/IP_router.png){:.shadow}
+![IP_router](/assets/images/IP_router.png){:.shadow}
 
 你把要问度娘的话和度娘门牌号一起发给路由器，路由器知道上哪儿去找所有人的家——假设度娘居住的服务器离你家挺近，有线直接连到这个路由器身上，那直接送过去就成啦；若是度娘住在地球对面的资本主义强国（**以下简称姿娘**），那得把你的信和地址原样送给资本主义的服务器，再让姓资的服务器去找姓资的度娘。
 
 问题来了，四个数字毫无规律，你怎么知道度娘的门牌号呢？大伙儿想了个办法，给度娘起了baidu.com这个好听好记的**域名**，搞了个**DNS服务器**，你要找度娘，先问DNS服务器baidu.com门牌号是啥，DNS把号发给你，你拿着号接着找度娘。有时候DNS出了问题，你这边就会显示：
 
-![DNS_error](https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/dns-server-cannot-be-reached.png){:.shadow}
+![DNS_error](/assets/images/dns-server-cannot-be-reached.png){:.shadow}
 
 ## 网站是如何被ban的
 
 中国电信、中国移动，顾名思义是两个:baby:，要听家里大人的话。有国内的网站不听话，咱:older_man:可以依法治理。但是，如果别人家的:baby:不听咱:older_man:的话，咱:older_man:还想管教人家，咋办呢？咱:older_man:于是叫人搞了一个叫GFW的东西。这个名字不是我瞎编的，是咱:older_man:自己起的名字，不信可以看百度百科：
 
-![gfw_baike](https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/GFW_baike.png){:.shadow}
+![gfw_baike](/assets/images/GFW_baike.png){:.shadow}
 
 这个GFW就好比矗立在我国国境线上忠诚守卫的战士，只不过当战士很光荣，GFW却有些行事隐秘见不得人。GFW具体是怎么办事儿的，咱们外人不清楚，但我们仍然可以捕风捉影地略知一二——
 
@@ -117,8 +117,8 @@ GFW并不是我国特色，很多国家都有类似的设施，譬如<span class
 
 以上，便是小编为大家整理的关于如何上不存在网站的方法。大家可能会很惊讶不存在的网站怎么会这么上呢？但事实就是这样，小编也感到非常惊讶。
 
-<img class="image image--md" src="https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/BeHit.jpg"/>
+<img class="image image--md" alt="被打.jpg" src="/assets/images/BeHit.jpg"/>
 
 这就是关于歪果服务器怎么搞的事情了，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！
 
-![再见](https://raw.githubusercontent.com/ZaoHan415/ZaoHan415.github.io/master/assets/images/goodbye.jpg)
+![再见](/assets/images/goodbye.jpg)
