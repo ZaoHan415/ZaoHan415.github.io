@@ -21,14 +21,6 @@ I reproduce Fig. 1 in their paper via Python, it's a good exercise and indeed st
 
 <!--more-->
 
-Relevant papers:
-
-[$Z^2$ Topological Order and the Quantum Spin Hall Effect](https://link.aps.org/doi/10.1103/PhysRevLett.95.146802)
-Phys. Rev. Lett. 95, 146802 (2005).
-
-[Quantum Spin Hall Effect in Graphene](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.95.226801)
-Phys. Rev. Lett. 95, 226801 (2005).
-
 ## Introduction
 
 For detail description of this model, see the paper. Basically, we have a tight-binding hamiltonian of this one electron system given in second quantization form
@@ -157,4 +149,18 @@ def addHopping1(mat, Nj, t1, tr, tv, kx):
 
 ## Discussions
 
-to be continued ...
+自TKNN number 将第一类陈数引入凝聚态体系后，人们一直试图回答下面几个问题：
+
+1. 对于满足时间反演不变的体系，虽然其第一类陈数恒为0，但是否存在其它拓扑不
+变量？
+2. 除了构成集合Z，拓扑数还有无其它可能？
+3. 可以在三维材料中找到拓扑不变量么？
+
+Kane-Mele 模型提出之前，学界已经从理论和实验上研究了一类绝缘体中的自旋霍尔效应(SHE)。2005 年，在单层石墨烯制备成功的基础上，Kane 与Mele 通过在石墨烯中引入自旋-轨道耦合并建模计算，从理论上提出了一种新的现象——量子自旋霍尔效应(QSHE)，并指出了实验上的观测方式[^2]。研究了该模型的边缘态后，他们指出这种QSH 相应当有着非平庸的拓扑性质，可以和之前自旋霍尔效应中涉及的体系区分开来。
+
+然而，由于时间反演(TR) 对称性的存在，陈数并不能用来描述QSH 相体系的拓扑。之后的工作[^3] 中，他们在满足时间反演对称性的二维哈密顿量之上定义了一个新的Z2拓扑不变量。再后来，这一拓扑分类被进一步推广到三维材料，于是，具有TR 对称性的绝缘体，均可采取这种拓扑绝缘体和普通绝缘体的分类法。从而对前述三个问题均给出了肯定的结论。Kane 与Mele 的这项工作，提出了一种实验可测的新现象，推进了TKNN 开创的拓扑物性领域，指导了后续的大量理论与实验，是一项重要的开创性工作。
+
+
+[^3]: [$Z^2$ Topological Order and the Quantum Spin Hall Effect](https://link.aps.org/doi/10.1103/PhysRevLett.95.146802) Phys. Rev. Lett. 95, 146802 (2005).
+
+[^2]: [Quantum Spin Hall Effect in Graphene](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.95.226801) Phys. Rev. Lett. 95, 226801 (2005).

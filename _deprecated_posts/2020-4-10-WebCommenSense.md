@@ -8,7 +8,7 @@ toc: true
 pageview: true
 aside:
     toc: true
-sitemap: true
+sitemap: false
 # mathjax: true
 ---
 
