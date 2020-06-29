@@ -33,7 +33,9 @@ The lattice we are considering is like a "strip" of graphene, means it has finit
 
 ## Detail and Code
 
-Label the cells in $x$ direction by index $n$, and atoms in a unit cell by index $j$, spin-1/2 is still denoted by $\alpha \in \\{ \uparrow, \downarrow \\}$.
+Label the cells in $x$ direction by index $n$, and atoms in a unit cell by index $j$ (schematic diagram of a 14-sites-unit-cell-case is drawn below), spin-1/2 is still denoted by $\alpha \in \\{ \uparrow, \downarrow \\}$.
+
+![unitCell](/assets/images/unit_cell.jpg)
 
 Translation symmetry along $x$ allows us to introduce $k$, such that
 
@@ -55,27 +57,38 @@ the matrix element is non-zero only if the electron can transit between two site
 
 $$h_{j\alpha, (j+\Delta j)\alpha} = t_1 \sum_{\Delta n} e^{-i k \Delta n}$$
 
-Code below adds the nearest neighbor hopping term
+Code below adds the nearest neighbor hopping term, along with the sub-lattice potential term
 
 ```python
-import numpy as np
-import matplotlib.pyplot as plt
-import scipy.linalg as la
-N = 30
-Nj = 2 * N + 2
-
-def addHopping1(mat, Nj, t1, kx):
+def addHopping1(mat, Nj, t1, tr, tv, kx):
     for j in range(Nj):
         if j % 2 == 0:
-            hoppingTo = [(0, 1), (0, -1), (1, 1)]
+            # sub-lattice potential
+            mat[(2*j, 2*j)] += tv
+            mat[(2*j + 1, 2*j + 1)] += tv
+            if j % 4 == 0:
+                # hoppingTo = {(\Delta n, \Delta j): (\Delta x, \Delta y), ... }
+                hoppingTo = {(0, 1): (-0.5, np.sqrt(3)/6), (0, -1): (0, -np.sqrt(3)/3), (1, 1): (0.5, np.sqrt(3)/6)}
+            else:
+                hoppingTo = {(0, 1): (-0.5, np.sqrt(3)/6), (0, -1): (0, -np.sqrt(3)/3), (-1, 1): (0.5, np.sqrt(3)/6)}
         else:
-            hoppingTo = [(0, 1), (0, -1), (-1, -1)]
+            mat[(2*j, 2*j)] += -tv
+            mat[(2*j + 1, 2*j + 1)] += -tv
+            if j % 4 == 1:
+                hoppingTo = {(0, 1): (0, np.sqrt(3)/3), (0, -1): (0.5, -np.sqrt(3)/6), (-1, -1): (-0.5, -np.sqrt(3)/6)}
+            else:
+                hoppingTo = {(0, 1): (0, np.sqrt(3)/3), (0, -1): (0.5, -np.sqrt(3)/6), (1, -1): (-0.5, -np.sqrt(3)/6)}
         for delta in hoppingTo:
+            dx, dy = hoppingTo[delta]
             jDes = delta[1] + j
             if jDes >= 0 and jDes < Nj:
-                elem = t1 * np.exp(1j * delta[0] * kx)
-                mat[(2*j, 2*jDes)] += elem
-                mat[(2*j + 1, 2*jDes + 1)] += elem
+                elem = np.exp(-1j * delta[0] * kx)
+                # nearest hopping
+                mat[(2*j, 2*jDes)] += elem * t1
+                mat[(2*j + 1, 2*jDes + 1)] += elem * t1
+                # Rashba term
+                mat[(2*j+1, 2*jDes)] += 1j * tr * (dy + 1j * dx) * elem
+                mat[(2*j, 2*jDes+1)] += 1j * tr * (dy - 1j * dx) * elem
 ```
 
 For the second neighbors
@@ -94,58 +107,14 @@ def addHopping2(mat, Nj, t2, kx):
         for delta in des:
             jDes = delta[1] + j
             if jDes >= 0 and jDes < Nj:
-                elem = 1j * delta[2] * t2 * np.exp(1j * delta[0] * kx)
-                # print(j ,delta[0], jDes, elem)
+                elem = 1j * delta[2] * t2 * np.exp(-1j * delta[0] * kx)
                 mat[(2*j, 2*jDes)] += elem
                 mat[(2*j + 1, 2*jDes + 1)] += -elem
 ```
-Calculate the spectrum
 
-```python
-def genHam(Nj, t1, t2, k):
-    ham = np.zeros((2*Nj, 2*Nj), dtype=complex)
-    addHopping1(ham, Nj, t1, k)
-    addHopping2(ham, Nj, t2, k)
-    return ham
-
-
-ks = np.linspace(0, +2*np.pi, 200)
-plt.axis([0, 2*np.pi, -1.1, 1.1])
-for k in ks:
-    hamilton = genHam(Nj, 1, 0.05, k)
-    vals = list(map(np.real ,la.eigvals(hamilton)))
-    xs = [k] * (2*Nj)
-    plt.scatter(xs, vals, c='black', s=1)
-plt.show()
-```
-
-and the output
+and the output spectrum (in correspondence with ref[^3])
 
 ![spectrum](/assets/images/KaneMeleSpectrum1.png)
-
-Rashba term and sublattice potential can be added by rewriting the first function:
-
-```python
-def addHopping1(mat, Nj, t1, tr, tv, kx):
-    for j in range(Nj):
-        if j % 2 == 0:
-            mat[(2*j, 2*j)] += tv
-            mat[(2*j + 1, 2*j + 1)] += tv
-            hoppingTo = {(0, 1): (-0.5, np.sqrt(3)/6), (0, -1): (0, -np.sqrt(3)/3), (1, 1): (0.5, np.sqrt(3)/6)}
-        else:
-            mat[(2*j, 2*j)] += -tv
-            mat[(2*j + 1, 2*j + 1)] += -tv
-            hoppingTo = {(0, 1): (0, np.sqrt(3)/3), (0, -1): (0.5, -np.sqrt(3)/6), (-1, -1): (-0.5, -np.sqrt(3)/6)}
-        for delta in hoppingTo:
-            dx, dy = hoppingTo[delta]
-            jDes = delta[1] + j
-            if jDes >= 0 and jDes < Nj:
-                elem = np.exp(1j * delta[0] * kx)
-                mat[(2*j, 2*jDes)] += t1 * elem
-                mat[(2*j + 1, 2*jDes + 1)] += t1 * elem
-                mat[(2*j+1, 2*jDes)] += 1j * tr * (dy + 1j * dx) * elem
-                mat[(2*j, 2*jDes+1)] += 1j * tr * (dy - 1j * dx) * elem
-```
 
 ## Discussions
 

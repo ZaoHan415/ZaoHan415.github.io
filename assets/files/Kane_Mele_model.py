@@ -64,7 +64,7 @@ def addHopping2(mat, Nj, t2, kx):
                 mat[(2*j + 1, 2*jDes + 1)] += -elem
 
 
-def addMagenticField(mat, Nj, H):
+def addMagenticField(mat, Nj, H):  # Zeeman term, magnetic field in x direction
     for j in range(Nj):
         mat[(2*j, 2*j + 1)] += H
         mat[(2*j + 1, 2*j)] += H
@@ -76,7 +76,7 @@ plt.axis([0, +2*np.pi, -1.1, 1.1])
 for k in ks:
     # 在这里填入哈密顿量各个参数：t1为最近邻，SO为自旋轨道耦合……
     hamilton = genHam(Nj, t1=1, SO=0.06, tr=0.05, tv=0.1, k=k)
-    addMagenticField(hamilton, Nj, H=0.0)
+    # addMagenticField(hamilton, Nj, H=0.0)
     # 求出所有本征值
     vals = list(map(np.real, la.eigvals(hamilton)))
     xs = [k] * (2*Nj)
