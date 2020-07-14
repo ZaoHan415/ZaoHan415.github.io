@@ -53,5 +53,17 @@
     <div class="article__license">{%- include article/footer/license.html license=_license_data -%}</div>
   {%- endif -%}
 
-  {%- include article/footer/likebtn.html -%}
+
+  {%- include snippets/assign.html target=site.data.variables.default.page.pageview
+    source0=layout.pageview source1=page.pageview -%}
+  {%- assign _pageview = __return -%}
+  {%- if _pageview or include.show_pageview -%}
+    {%- assign _pageview = true -%}
+  {%- else -%}
+    {%- assign _pageview = false -%}
+  {%- endif -%}
+  
+  {%- if _pageview -%}
+    {%- include article/footer/likebtn.html -%}
+  {%- endif -%}
 </footer>

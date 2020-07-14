@@ -30,8 +30,6 @@
   }
 </style>
 
-<div class="nlike"> 赞 <num>0</num> </div>
-
 {%- include snippets/get-sources.html -%}
 {%- assign _sources = __return -%}
 
@@ -44,6 +42,8 @@
   _LEANCLOUD_APP_KEY and
   _LEANCLOUD_APP_CLASS -%}
 
+  <div class="nlike"> 赞 <num>0</num> </div>
+  
   <script>
     {%- include pageview-providers/leancloud/leancloud_likes.js -%}
   </script>
