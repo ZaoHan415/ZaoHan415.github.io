@@ -1,6 +1,9 @@
 <!-- start custom article footer snippet -->
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
+{%- if jekyll.environment != "development" and
+      jekyll.environment != "beta" -%}
+
 <style>
   .nlike{
     font-size:24px;
@@ -43,7 +46,7 @@
   _LEANCLOUD_APP_CLASS -%}
 
   <div class="nlike"> 赞 <num>0</num> </div>
-  
+
   <script>
     {%- include pageview-providers/leancloud/leancloud_likes.js -%}
   </script>
@@ -58,6 +61,9 @@
       });
       var key =   '{{ page.key }}';
       var title = {{ page.title | jsonify }};
+      postLikes.increase(key, title, function(view) {
+        $("[data-page-key='{{ page.key }}']").text(view);
+      });
       postLikes.get(key, function(likes) {
         document.getElementsByClassName("nlike")[0].firstElementChild.innerText = likes;
         count = likes;
@@ -81,25 +87,7 @@
   </script>
 
 {%- endif -%}
+{%- endif -%}
 
-<!-- <script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
-
-<script>
-    var hasClicked = false;
-    var count = null;
-    $(function () {            
-        $(".nlike").click(function () {
-            $(this).toggleClass('like');
-            if (hasClicked) {
-              count--;
-              hasClicked=false;
-            }else{
-              count++;
-              hasClicked=true;
-            }
-            document.getElementsByClassName("nlike")[0].firstElementChild.innerText = count;
-        })
-    })
-</script> -->
 
 <!-- end custom article footer snippet -->

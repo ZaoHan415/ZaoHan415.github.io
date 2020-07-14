@@ -19,9 +19,27 @@
       });
       return {
         get: get,
-        modifyLikes: modifyLikes
+        modifyLikes: modifyLikes,
+        increase: increase
       };
+      
+      function insert(key, title) {
+        var Blog = AV.Object.extend(appClass);
+        var blog = new Blog();
+        blog.set('title', title);
+        blog.set('key', key);
+        blog.set('views', 0);
+        blog.set('likes', 0);
+        return blog.save();
+      }
   
+      function increment(result) {
+        result.increment('views', 1);
+        return result.save(null, {
+          fetchWhenSave: true
+        });
+      }
+
       function searchKey(key) {
         var query = new AV.Query(appClass);
         query.equalTo('key', key);
@@ -54,6 +72,23 @@
           }
         }, errorHandler);
       }
+      
+      function increase(key, title, callback) {
+        searchKey(key).then(function(result) {
+          if (result) {
+            increment(result).then(function(result) {
+              callback && callback(result.attributes.views);
+            });
+          } else {
+            insert(key, title).then(function(result) {
+              increment(result).then(function(result) {
+                callback && callback(result.attributes.views);
+              });
+            }, errorHandler);
+          }
+        }, errorHandler);
+      }
     }
+
     window.postLikes = postLikes;
   })();
