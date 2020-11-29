@@ -12,6 +12,10 @@ sitemap: true
 mathjax: true
 ---
 
+Some notes on many body theory
+
+<!--more-->
+
 ## On Feynman diagram
 
 - Why should we demand wick’s theorem? Isn’t the adiabatic evolution theorem in junior quantum mechanics course enough?
