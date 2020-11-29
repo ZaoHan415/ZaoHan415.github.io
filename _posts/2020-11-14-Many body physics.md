@@ -1,7 +1,7 @@
 ---
 title: Many body theory, Q&A
 tags: Note\笔记
-key:feynmanDiagramAmazing
+key: feynmanDiagramAmazing
 layout: article
 license: true
 toc: true
